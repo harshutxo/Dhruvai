@@ -31,7 +31,7 @@ with st.sidebar:
                 f.write(uploaded_file.read())
 
 # Component #2 - Embedding Model and LLM
-llm = ChatGroq(model="Gemma2-9b-It", api_key='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')
+llm = ChatGroq(model="Gemma2-9b-It", api_key='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')
 document_embedder = NVIDIAEmbeddings(model="nvidia/nv-embedqa-e5-v5", api_key='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',model_type="passage")
 
 # Component #3 - Vector Database Store
@@ -115,3 +115,4 @@ if user_input:
         message_placeholder.markdown(full_response)
 
     st.session_state.messages.append({"role": "assistant", "content": full_response})
+
