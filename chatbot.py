@@ -31,7 +31,14 @@ with st.sidebar:
                 f.write(uploaded_file.read())
 
 # Component #2 - Embedding Model and LLM
-llm = ChatGroq(model="Gemma2-9b-It", api_key='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')
+from langchain_openai import ChatOpenAI
+
+llm = ChatOpenAI(
+    model="deepseek-chat",
+    openai_api_key="sk-f999f2189b614e7497df20c462898d72",
+    openai_api_base="https://api.deepseek.com/v1"
+)
+
 document_embedder = NVIDIAEmbeddings(model="nvidia/nv-embedqa-e5-v5", api_key='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',model_type="passage")
 
 # Component #3 - Vector Database Store
@@ -115,5 +122,6 @@ if user_input:
         message_placeholder.markdown(full_response)
 
     st.session_state.messages.append({"role": "assistant", "content": full_response})
+
 
 
