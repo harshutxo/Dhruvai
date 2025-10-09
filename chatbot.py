@@ -31,14 +31,7 @@ with st.sidebar:
                 f.write(uploaded_file.read())
 
 # Component #2 - Embedding Model and LLM
-from langchain_openai import ChatOpenAI
-
-llm = ChatOpenAI(
-    model="deepseek-chat",
-    openai_api_key="sk-f999f2189b614e7497df20c462898d72",
-    openai_api_base="https://api.deepseek.com/v1"
-)
-
+llm = ChatGroq(model="llama-3.1-8b-instant", api_key='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')
 document_embedder = NVIDIAEmbeddings(model="nvidia/nv-embedqa-e5-v5", api_key='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',model_type="passage")
 
 # Component #3 - Vector Database Store
